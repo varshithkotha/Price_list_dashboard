@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block title %}Welcome - Manikanta Disposables{% endblock %}
+
+{% block content %}
+<div class="landing-page">
+    <div class="welcome-text">
+        <h1>Welcome to Manikanta Disposables</h1>
+        <p class="subtitle">A Sri Sai Agencies's Firm</p>
+    </div>
+    <div class="action-buttons">
+        <a href="{{ url_for('add_item') }}" class="btn btn-primary">Add Item & Price</a>
+        <a href="{{ url_for('pricelist') }}" class="btn btn-secondary">View Price List</a>
+    </div>
+</div>
+{% endblock %}

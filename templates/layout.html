@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Manikanta Disposables{% endblock %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script>
+        // Apply theme instantly to prevent flash of light theme
+        (function() {
+            const theme = localStorage.getItem('theme') || 'light';
+            if (theme === 'dark') {
+                document.documentElement.classList.add('dark-theme');
+                // Or if you use body: document.body.classList.add('dark-theme');
+            }
+        })();
+    </script>
+</head>
+<body class="{{ 'dark-theme' if request.cookies.get('theme') == 'dark' else '' }}">
+    <header class="main-header">
+        <div class="container">
+            <a href="{{ url_for('index') }}" class="logo">Manikanta Disposables</a>
+            <nav>
+                <a href="{{ url_for('add_item') }}">Add Item</a>
+                <a href="{{ url_for('pricelist') }}">Price List</a>
+                <div class="theme-switch-wrapper">
+                    <label class="theme-switch" for="checkbox">
+                        <input type="checkbox" id="checkbox" />
+                        <div class="slider round"></div>
+                    </label>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Manikanta Disposables - A Sri Sai Agencies's Firm</p>
+        </div>
+    </footer>
+
+    <!-- Edit Item Modal -->
+    <div id="editModal" class="modal-overlay">
+        <div class="modal">
+            <div class="form-container">
+                 <span class="close-button" id="closeModalBtn">&times;</span>
+                <h2>Edit Item</h2>
+                <form id="editItemForm" method="POST">
+                    <div class="form-group">
+                        <label for="edit_item_name">Item Name</label>
+                        <input type="text" id="edit_item_name" name="item_name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit_quantity">Quantity</label>
+                        <input type="text" id="edit_quantity" name="quantity" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit_section">Section</label>
+                        <input type="text" id="edit_section" name="section" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit_price">Price (₹)</label>
+                        <input type="number" id="edit_price" name="price" step="0.01" min="0" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Update Item</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

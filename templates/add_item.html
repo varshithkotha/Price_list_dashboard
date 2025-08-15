@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}Add New Item{% endblock %}
+
+{% block content %}
+<div class="form-container">
+    <h2>Add a New Item to the Price List</h2>
+    <form action="{{ url_for('add_item') }}" method="POST" class="item-form">
+        <div class="form-group">
+            <label for="item_name">Item Name</label>
+            <input type="text" id="item_name" name="item_name" required>
+        </div>
+        <div class="form-group">
+            <label for="quantity">Quantity (e.g., "100 Pcs", "1 Roll")</label>
+            <input type="text" id="quantity" name="quantity" required>
+        </div>
+        <div class="form-group">
+            <label for="section">Section (e.g., "Plates", "Cups")</label>
+            <input type="text" id="section" name="section" required>
+        </div>
+        <div class="form-group">
+            <label for="price">Price (₹)</label>
+            <input type="number" id="price" name="price" step="0.01" min="0" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Item</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block title %}Price List{% endblock %}
+
+{% block content %}
+<div class="pricelist-header">
+    <h2>Complete Price List</h2>
+    <div class="filters">
+        <input type="text" id="searchBar" placeholder="Search by item name...">
+        <select id="sectionFilter">
+            <option value="all">All Sections</option>
+            {% for section in sections %}
+            <option value="{{ section }}">{{ section }}</option>
+            {% endfor %}
+        </select>
+    </div>
+</div>
+
+<div id="priceListContainer" class="price-list-grid">
+    {% for item in items %}
+    <div class="price-card" data-name="{{ item.name.lower() }}" data-section="{{ item.section }}">
+        <div class="card-header">
+            <h3>{{ item.name }}</h3>
+            <span class="section-tag">{{ item.section }}</span>
+        </div>
+        <div class="card-body">
+            <p><strong>Quantity:</strong> {{ item.quantity }}</p>
+            <p class="price">₹{{ "%.2f"|format(item.price) }}</p>
+        </div>
+        <div class="card-footer">
+            <!-- EDIT BUTTON ADDED HERE -->
+            <button class="btn btn-card btn-edit" 
+                    data-id="{{ item.id }}"
+                    data-name="{{ item.name }}"
+                    data-quantity="{{ item.quantity }}"
+                    data-section="{{ item.section }}"
+                    data-price="{{ item.price }}">
+                Edit
+            </button>
+            <form action="{{ url_for('delete_item', item_id=item.id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this item?');" style="display: inline;">
+                <button type="submit" class="btn btn-card btn-delete">Delete</button>
+            </form>
+        </div>
+    </div>
+    {% else %}
+    <p class="no-items">No items found. <a href="{{ url_for('add_item') }}">Add one now!</a></p>
+    {% endfor %}
+</div>
+{% endblock %}

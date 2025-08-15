@@ -1,0 +1,66 @@
+[
+    {
+        "id": "e0ea65ef-51c8-4c4b-a22f-864ff8d05881",
+        "name": "Thums Up 250ml",
+        "quantity": "1 case",
+        "section": "Cool Drinks",
+        "price": 470.0
+    },
+    {
+        "id": "a451e99b-3186-4707-ae89-792f479e970b",
+        "name": "Thumps Up 2.25 ltr",
+        "quantity": "1 case",
+        "section": "Cool Drinks",
+        "price": 740.0
+    },
+    {
+        "id": "875ba333-b139-437a-936d-cb3b1fff8ba8",
+        "name": "Thumps Up 1 ltr",
+        "quantity": "1 case",
+        "section": "Cool Drinks",
+        "price": 650.0
+    },
+    {
+        "id": "83ca16a3-2c7a-4cac-9ecd-36535dffe7a3",
+        "name": "Thumps Up 750ml (40 mrp)",
+        "quantity": "1 case",
+        "section": "Cool Drinks",
+        "price": 800.0,
+        "mrp": 40.0
+    },
+    {
+        "id": "d2886b7f-4e3a-4830-acf4-61244916e304",
+        "name": "Sprite 2.25 ltr",
+        "quantity": "1 case",
+        "section": "Cool Drinks",
+        "price": 740.0
+    },
+    {
+        "id": "812f980f-e924-4eb8-885d-e3109f75fee2",
+        "name": "Sprite 250ml",
+        "quantity": "1 case",
+        "section": "Cool Drinks",
+        "price": 470.0
+    },
+    {
+        "id": "535e0ed2-8bd4-4f10-93e5-2aedc3721bc8",
+        "name": "Mazaa 250ml",
+        "quantity": "1 case",
+        "section": "Cool Drinks",
+        "price": 550.0
+    },
+    {
+        "id": "ad514ce2-24cb-420a-a9fc-7b0c61cefc68",
+        "name": "Sting 250 ml",
+        "quantity": "1 case",
+        "section": "Cool Drinks",
+        "price": 510.0
+    },
+    {
+        "id": "28b2434b-c8b6-4ef4-aaab-ec89575c4d0d",
+        "name": "Mountain Dew",
+        "quantity": "1 case",
+        "section": "Cool Drinks",
+        "price": 520.0
+    }
+]
